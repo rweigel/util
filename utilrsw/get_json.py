@@ -26,7 +26,12 @@ def get_json(url, cache_dir=None, headers=None, timeout=20, max_retries=5, diffs
     resp = session.get(url, protocol, headers=headers, timeout=timeout)
     resp.raise_for_status()
   except Exception as e:
-    return {'response': resp, 'data': None, 'diff': None, 'emsg': e}
+    #import pdb; pdb.set_trace()
+    # using e as below for message shows a ?https at the end of the url, which
+    # is misleading because it was not the actual url attempted.
+    #return {'response': resp, 'data': None, 'diff': None, 'emsg': e}
+    emsg = f"HTTP status code {e.response.status_code} and reason '{e.response.reason}' for {url}"
+    return {'response': resp, 'data': None, 'diff': None, 'emsg': emsg}
 
   try:
     if resp.headers['Content-Type'] == 'text/xml':

@@ -10,6 +10,9 @@ get_json = get_json.get_json
 from . import get_path as get_path
 get_path = get_path.get_path
 
+from . import file_parts as file_parts
+file_parts = file_parts.file_parts
+
 from . import flatten_dicts as flatten_dicts
 flatten_dicts = flatten_dicts.flatten_dicts
 

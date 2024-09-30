@@ -11,7 +11,6 @@ def get_file(url, logger=None, url2file=None, use_cache=True, cache_dir=None):
   #       file.header.ext exists. Use keyword "update" instead of "use_cache"
   #       to be consistent with get().
 
-
   length=16*1024
 
   if url2file is not None:

@@ -9,7 +9,8 @@ from setuptools import setup, find_packages
 # See also utilrsw/get_json.py/_requests_cache_bug()
 install_requires = [
     "requests_cache==1.2",
-    "deepdiff"
+    "deepdiff",
+    "xmltodict"
 ]
 
 setup(
