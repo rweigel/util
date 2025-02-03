@@ -1,6 +1,9 @@
 from . import array_to_dict as array_to_dict
 array_to_dict = array_to_dict.array_to_dict
 
+from . import compare_dicts as compare_dicts
+compare_dicts = compare_dicts.compare_dicts
+
 from . import get_file as get_file
 get_file = get_file.get_file
 

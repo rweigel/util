@@ -44,7 +44,7 @@ def get_file(url, logger=None, url2file=None, use_cache=True, cache_dir=None):
   except Exception as e:
     if logger is not None:
       logger.error(f"Error: {url}: {e}")
-    return None
+    raise e
 
   try:
     with open(file_name_tmp, 'wb') as fp:
@@ -53,7 +53,7 @@ def get_file(url, logger=None, url2file=None, use_cache=True, cache_dir=None):
     if logger is not None:
       logger.error(f"Error: {url}: {e}")
     os.remove(file_name_tmp)
-    return None
+    raise e
 
   if logger is not None:
     logger.info(f"Got: {utilrsw.tock(begin):.2f}s {url}")
@@ -64,7 +64,7 @@ def get_file(url, logger=None, url2file=None, use_cache=True, cache_dir=None):
     if logger is not None:
       logger.error(f"Error: {url}: {e}")
     os.remove(file_name_tmp)
-    return None
+    raise e
 
   headers = dict(req.getheaders())
   utilrsw.write(file_name + ".headers.json", headers, logger=logger)
